@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 22:50:39 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/09 21:54:18 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/02/09 20:47:59 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/02/09 21:30:09 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_strchr(char *str, char c)
 {
-	va_list		ap;
-	int			i;
-	int			len;
-	
-	if (!str)
-		return (0);
-	va_start(ap, str);
-	len = 0;
-	i = -1;
-	while (str[++i])
+	while(*str)
 	{
-		if(str[i] == 37)
-		{
-			if (!find_specifier(&(str[++i]), &len, &ap))
-				return (len);
-		}
-		else
-		{
-			write(1, &str[i], 1);
-			len++;
-		}
+		if (*str == c)
+			return (1);
+		str++;
 	}
-	va_end(ap);
-	return (len);
+	return (0);
 }

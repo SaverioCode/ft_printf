@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 22:50:39 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/09 21:54:18 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/01/21 06:57:06 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/02/09 21:49:03 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_strdup(const char *s1)
 {
-	va_list		ap;
-	int			i;
-	int			len;
-	
-	if (!str)
-		return (0);
-	va_start(ap, str);
-	len = 0;
-	i = -1;
-	while (str[++i])
-	{
-		if(str[i] == 37)
-		{
-			if (!find_specifier(&(str[++i]), &len, &ap))
-				return (len);
-		}
-		else
-		{
-			write(1, &str[i], 1);
-			len++;
-		}
-	}
-	va_end(ap);
-	return (len);
+	int		i;
+	char	*s2;
+
+	i = 0;
+	while (s1[i])
+		i++;
+	s2 = (char *)malloc(i + 1);
+	if (!s2)
+		return (NULL);
+	s2[i] = 0;
+	while (--i >= 0)
+		s2[i] = s1[i];
+	return (s2);
 }
