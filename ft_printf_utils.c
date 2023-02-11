@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:18:43 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/11 13:43:06 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:40:46 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	handle_string(va_list *ap, int *len)
 {
 	char	*str;
-	
+
 	str = va_arg(*ap, char *);
 	if (!str)
 		str = "(null)";
@@ -28,7 +28,7 @@ void	print_spc(const char *str, int *len, va_list *ap)
 	char	c;
 
 	if (*str == 117)
-		*len += ft_putnbr(va_arg(*ap, unsigned int));	
+		*len += ft_putnbr(va_arg(*ap, unsigned int));
 	else if (*str == 100 || *str == 105)
 		*len += ft_putnbr(va_arg(*ap, int));
 	else if (*str == 115)

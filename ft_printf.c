@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:50:39 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/11 10:19:54 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:40:27 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str != 37 && ++len)
 			write(1, str, 1);
-		else 
+		else
 			print_spc(++str, &len, &ap);
 		str++;
 	}

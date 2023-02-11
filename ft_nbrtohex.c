@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:34:41 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/11 13:48:38 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:39:33 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_ulonglen(unsigned long num, int base)
 		num = num / base;
 	return (counter);
 }
-
 
 int	ft_nbrtohex(unsigned long n, char c)
 {
@@ -43,6 +42,6 @@ int	ft_nbrtohex(unsigned long n, char c)
 			temp[--strlen] = rest + 48;
 		else if (rest > 9 && rest < 16)
 			temp[--strlen] = rest + ((int)c - 33);
- 	}
+	}
 	return (write(1, temp, ft_strlen(temp)));
 }
