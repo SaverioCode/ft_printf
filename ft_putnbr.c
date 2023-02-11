@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 22:50:39 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/11 10:19:54 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/01/28 02:37:37 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/02/11 12:31:45 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_putnbr(long n)
 {
-	va_list		ap;
-	int			len;
+	int		strlen;
+	char	temp[12];
 
-	if (!str)
-		return (0);
-	va_start(ap, str);
-	len = 0;
-	while (*str)
+	if (n == 0)
+		return (write(1, "0", 1));
+	strlen = ft_numlen(n, 10);
+	if (n < 0)
 	{
-		if (*str != 37 && ++len)
-			write(1, str, 1);
-		else 
-			print_spc(++str, &len, &ap);
-		str++;
+		temp[0] = '-';
+		n *= -1;
 	}
-	va_end(ap);
-	return (len);
+	temp[strlen] = 0;
+	while (n > 0)
+	{
+		temp[--strlen] = (n % 10) + 48;
+		n = (n - (n % 10)) / 10;
+	}
+	return (write(1, temp, ft_strlen(temp)));
 }

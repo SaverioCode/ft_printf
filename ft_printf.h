@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:04:58 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/09 23:57:45 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/02/11 13:47:51 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *str, ...);
-char	*ft_itoh(int num);
+int		ft_nbrtohex(unsigned long n, char c);
 int		ft_strchr(char *str, char c);
-int		find_specifier(const char *str, int *len, va_list *ap);
-char	*ft_itoa(int n);
+void	print_spc(const char *str, int *len, va_list *ap);
 size_t	ft_strlen(const char *s);
-void	*ft_calloc(size_t count, size_t size);
-char	*ft_strdup(const char *s1);
+void	ft_strtolower(char *str);
+int		ft_numlen(long num, int base);
+int		ft_putnbr(long n);
+void	ft_putstr(char *s, int *len);
 
 #endif

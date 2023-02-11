@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 22:50:39 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/11 10:19:54 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/02/11 04:11:16 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/02/11 04:18:10 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_putstr(char *s, int *len)
 {
-	va_list		ap;
-	int			len;
+	int	strlen;
 
-	if (!str)
-		return (0);
-	va_start(ap, str);
-	len = 0;
-	while (*str)
-	{
-		if (*str != 37 && ++len)
-			write(1, str, 1);
-		else 
-			print_spc(++str, &len, &ap);
-		str++;
-	}
-	va_end(ap);
-	return (len);
+	if (!s)
+		return ;
+	strlen = ft_strlen(s);
+	write(1, s, strlen);
+	*len += strlen;
+	return ;
 }

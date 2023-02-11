@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strtolower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 22:50:39 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/02/11 10:19:54 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/02/10 00:28:12 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/02/10 01:49:14 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_printf(const char *str, ...)
+void	ft_strtolower(char *str)
 {
-	va_list		ap;
-	int			len;
-
-	if (!str)
-		return (0);
-	va_start(ap, str);
-	len = 0;
 	while (*str)
-	{
-		if (*str != 37 && ++len)
-			write(1, str, 1);
-		else 
-			print_spc(++str, &len, &ap);
-		str++;
+	{	
+		if (*str > 64 && *str < 91)
+		{
+			*str += 32;
+			str++;
+		}
 	}
-	va_end(ap);
-	return (len);
+	return ;
 }
